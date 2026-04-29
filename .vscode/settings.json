@@ -10,9 +10,15 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
+            "name": "Erick",
             "database": "crud_sql",
-            "username": "root",
-            "name": "mysql"
+            "username": "root"
         }
+    ],
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\erick\\Downloads\\mysql-connector-j-9.7.0\\mysql-connector-j-9.7.0\\mysql-connector-j-9.7.0.jar"
     ]
 }
