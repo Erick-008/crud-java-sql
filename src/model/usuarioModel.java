@@ -9,7 +9,8 @@ public class UsuarioModel {
     private String senha;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private boolean status;
+    private LocalDateTime deletedAt;
+
 
 
     public UsuarioModel() {
@@ -54,10 +55,11 @@ public class UsuarioModel {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-    public boolean isStatus() {
-        return status;
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
     }
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
     }
+    
 }
