@@ -1,7 +1,7 @@
 package model;
 import java.time.LocalDateTime;
 
-public class usuarioModel {
+public class UsuarioModel {
 
     private int id;
     private String nome;
@@ -12,7 +12,7 @@ public class usuarioModel {
     private boolean status;
 
 
-    public usuarioModel() {
+    public UsuarioModel() {
      nome = "";
      email = "";
      senha = "";

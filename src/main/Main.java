@@ -1,6 +1,9 @@
 package main;
 
+import service.Service;
+import model.UsuarioModel;
+
 public class Main { 
     
-    Usuario user = new Usuario();
+    usuario user = new usuario();
 }
