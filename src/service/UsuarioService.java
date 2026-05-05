@@ -40,6 +40,11 @@ public class UsuarioService {
                 throw new IllegalArgumentException("Este email já está cadastrado.");
             }
         }
+        
+        // Faz hash da senha antes de salvar
+        String senhaHasheada = passwordUtil.hashPassword(usuario.getSenha());
+        usuario.setSenha(senhaHasheada);
+        
         usuarioDao.create(usuario);
     }
     
@@ -80,6 +85,10 @@ public class UsuarioService {
             }
         }
         
+        // Faz hash da senha antes de atualizar
+        String senhaHasheada = passwordUtil.hashPassword(usuario.getSenha());
+        usuario.setSenha(senhaHasheada);
+        
         usuarioDao.update(usuario);
     }
     
@@ -96,6 +105,45 @@ public class UsuarioService {
     
     public List<UsuarioModel> lerTodosUsuarios() throws SQLException {
         return usuarioDao.findAll();
+    }
+    
+    /**
+     * Autentica um usuário verificando email e senha
+     * @param email email do usuário
+     * @param senha senha em texto plano
+     * @return o objeto UsuarioModel se autenticado com sucesso
+     * @throws IllegalArgumentException se email ou senha forem inválidos
+     */
+    public UsuarioModel autenticar(String email, String senha) throws IllegalArgumentException, SQLException {
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("Email é obrigatório.");
+        }
+        if (senha == null || senha.isEmpty()) {
+            throw new IllegalArgumentException("Senha é obrigatória.");
+        }
+        
+        // Busca o usuário pelo email
+        List<UsuarioModel> usuarios = usuarioDao.findAll();
+        UsuarioModel usuarioEncontrado = null;
+        
+        for (UsuarioModel u : usuarios) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
+                usuarioEncontrado = u;
+                break;
+            }
+        }
+        
+        // Verifica se o usuário foi encontrado
+        if (usuarioEncontrado == null) {
+            throw new IllegalArgumentException("Email ou senha inválidos.");
+        }
+        
+        // Verifica se a senha corresponde ao hash armazenado
+        if (!passwordUtil.verifyPassword(senha, usuarioEncontrado.getSenha())) {
+            throw new IllegalArgumentException("Email ou senha inválidos.");
+        }
+        
+        return usuarioEncontrado;
     }
     
     public void deletarUsuario(int id) throws IllegalArgumentException, SQLException {

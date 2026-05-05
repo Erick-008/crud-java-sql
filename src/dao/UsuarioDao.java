@@ -58,6 +58,20 @@ public class UsuarioDao {
         }
         return null;
     }
+    public UsuarioModel findByEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM usuarios WHERE email = ? AND deleted_at IS NULL";
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+
+            try (var rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapRowToModel(rs);
+                }
+            }
+        }
+        return null;
+    }
 
     public List<UsuarioModel> findAll() throws SQLException {
         String sql = "SELECT * FROM usuarios WHERE deleted_at IS NULL ORDER BY id DESC";
@@ -84,4 +98,5 @@ public class UsuarioDao {
         usuario.setDeletedAt(rs.getTimestamp("deleted_at") != null ? rs.getTimestamp("deleted_at").toLocalDateTime() : null);
         return usuario;
     }
+
 }

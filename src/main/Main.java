@@ -24,9 +24,9 @@ public class Main {
             
             // Criar um usuário
             UsuarioModel novoUsuario = new UsuarioModel();
-            novoUsuario.setNome("Erick");
-            novoUsuario.setEmail("erick@example.com");
-            novoUsuario.setSenha("senha123");
+            novoUsuario.setNome("pedro");
+            novoUsuario.setEmail("pedro@email.com");
+            novoUsuario.setSenha("sV09mda");
             
             usuarioService.criarUsuario(novoUsuario);
             System.out.println("Usuário criado com sucesso!");
