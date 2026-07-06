@@ -2,24 +2,25 @@
 
 Sistema CRUD desenvolvido com Java 25 utilizando JDBC, arquitetura em camadas e integração com MySQL.
 
-Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto foi desenvolvido com o objetivo de praticar conceitos fundamentais do desenvolvimento backend utilizando Java puro com JDBC.
 
 A aplicação realiza operações completas de CRUD (Create, Read, Update e Delete), seguindo uma arquitetura em camadas para manter o código organizado, escalável e de fácil manutenção.
 
-Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
-Java 25
-JDBC
-MySQL
-Maven
-DBeaver
-Git & GitHub
+- Java 25
+- JDBC
+- MySQL
+- Maven
+- DBeaver
+- Git & GitHub
 
-Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O projeto segue o padrão de arquitetura em camadas:
+```
 src
  ┣ main
  ┃ ┣ java
@@ -35,21 +36,22 @@ src
  ┃  ┣ util
  ┃  ┗ app
  ┗ pom.xml
+ ```
+ ### Camadas
  
- Camadas
- 
---application → Camada responsável pela configuração e inicialização da aplicação.
---controller → Responsável por controlar o fluxo da aplicação. 
---dao → Responsável pelo acesso ao banco de dados. 
---db → Responsável pela configuração e gerenciamento da conexão com o banco.
---dto → Utilizado para transportar dados entre as camadas da aplicação.
---exceptions → Responsável pelas exceções personalizadas do sistema.
---model → Entidades do sistema
---security → Responsável pela segurança da aplicação.
---service → Camada responsável pelas regras de negócio.
---util → Classes utilitárias reutilizáveis.
+- application → Camada responsável pela configuração e inicialização da aplicação.
+- controller → Responsável por controlar o fluxo da aplicação. 
+- dao → Responsável pelo acesso ao banco de dados. 
+- db → Responsável pela configuração e gerenciamento da conexão com o banco.
+- dto → Utilizado para transportar dados entre as camadas da aplicação.
+- exceptions → Responsável pelas exceções personalizadas do sistema.
+- model → Entidades do sistema
+- security → Responsável pela segurança da aplicação.
+- service → Camada responsável pelas regras de negócio.
+- util → Classes utilitárias reutilizáveis.
 
-Como funciona o fluxo da aplicação 
+### Como funciona o fluxo da aplicação 
+```   
     Usuário
        ↓
    Controller
@@ -59,8 +61,8 @@ Como funciona o fluxo da aplicação
       DAO
        ↓
  Banco de Dados
-
- Funcionalidades
+```
+ ### Funcionalidades
 
  Cadastro de usuários
  Listagem de registros
@@ -70,7 +72,7 @@ Como funciona o fluxo da aplicação
  Organização em arquitetura em camadas
  Gerenciamento de dependências com Maven
 
- Aprendizados
+### Aprendizados
 
 Durante o desenvolvimento deste projeto foram praticados conceitos como:
 
@@ -82,7 +84,7 @@ Manipulação de SQL no Java
 Gerenciamento de dependências com Maven
 Versionamento com Git
 
- Diferenciais do Projeto
+### Diferenciais do Projeto
 Código organizado seguindo boas práticas
 Separação de responsabilidades
 Estrutura semelhante a projetos reais
